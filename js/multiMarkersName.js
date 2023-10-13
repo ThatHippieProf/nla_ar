@@ -3,6 +3,7 @@
 //Global Variable
 var markersURLArray=[];
 var markersNameArray=[];
+var assetSRCArray=[];
 
 AFRAME.registerComponent('markers_start',{
 	init:function(){
