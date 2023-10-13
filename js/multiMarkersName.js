@@ -21,7 +21,7 @@ AFRAME.registerComponent('markers_start',{
 			//console.log(src);
 		}
 
-		for (var k=0; k<4; k++
+		for (var k=0; k<4; k++)
 		{
 			var assetsEl = document.createElement('a-assets');
 			assetsEl.setAttribute('src',assetSRCArray[k]);
