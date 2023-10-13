@@ -3,6 +3,8 @@
 //Global Variable
 var markersURLArray=[];
 var markersNameArray=[];
+var assetSRCArray=[];
+var assetIDArray=[];
 
 AFRAME.registerComponent('markers_start',{
 	init:function(){
@@ -10,12 +12,30 @@ AFRAME.registerComponent('markers_start',{
 
 		var sceneEl = document.querySelector('a-scene');
 		
+		//list of assets
+		for (var i=1; i<4; i++)
+		{
+			var src="resources/assets/asset-Individual-"+i+".glb";
+			assetSRCArray.push(src)
+			assetIDArray.push('#asset'+i);
+			//console.log(src);
+		}
+
+		for (var k=0; k<4; k++
+		{
+			var assetsEl = document.createElement('a-assets');
+			assetsEl.setAttribute('src',assetSRCArray[k]);
+			assetsEl.setAttribute('id' ,assetIDArray[k];
+
+			sceneEl.appendChild(assetsEl);
+		}
+		
 		//list of the markers
 		for(var i=1; i<4; i++)
 		{
 			var url="resources/markers/pattern-Individual_Blocks-"+i+".patt";
 			markersURLArray.push(url);
-			markersNameArray.push('#asset'+i);
+			markersNameArray.push('Transformative Motion '+i);
 			//console.log(url);
 		}
 
@@ -32,9 +52,8 @@ AFRAME.registerComponent('markers_start',{
 			//Adding obj to each marker
 			var objEl = document.createElement('a-entity');
 			
-			objEl.setAttribute('id','model-{markerNameArray[k]}');
-			objEl.setAttribute('gtlf-model',markersNameArray[k]);
-			objEl.object3D.position.set(0, 0.7, 0);
+			objEl.setAttribute('gtlf-model',assetIDArray[k]);
+			objEl.object3D.position.set(0, 0, 0.5);
 			objEl.object3D.scale.set(5, 5, 5);
 
 			markerEl.appendChild(objEl);
