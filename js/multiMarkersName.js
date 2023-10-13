@@ -3,7 +3,7 @@
 //Global Variable
 var markersURLArray=[];
 var markersNameArray=[];
-var assetSRCArray=[];
+var assetIDArray=[];
 
 AFRAME.registerComponent('markers_start',{
 	init:function(){
@@ -16,16 +16,9 @@ AFRAME.registerComponent('markers_start',{
 		{
 			var url="resources/markers/pattern-Individual_Blocks-"+i+".patt";
 			markersURLArray.push(url);
-			markersNameArray.push('TransverseMotion'+i);
+			markersNameArray.push('Transverse-Motion-'+i);
+			markerIDArray.push('#asset'+i);
 			//console.log(url);
-		}
-
-		//list of the assets
-		for(var i=1; i<4; i++)
-		{
-			var src="resources/assets/asset-Individual-"+i=+".glb";
-			assetSRCArray.push(src);
-			//console.log(src);
 		}
 
 		for(var k=0; k<4; k++)
@@ -42,10 +35,9 @@ AFRAME.registerComponent('markers_start',{
 			var objEl = document.createElement('a-entity');
 			
 			objEl.setAttribute('id','gltf-model');
-			objEl.setAttribute('gtlf-model','src="assetSRCArray[k]"');
+			objEl.setAttribute('gtlf-model','assetIDArray[k]');
 			objEl.object3D.position.set(0, 0.7, 0);
 			objEl.object3D.scale.set(5, 5, 5);
-			objEl.object3D.rotation.set(-90, 0, 0);
 
 			markerEl.appendChild(objEl);
 		}
