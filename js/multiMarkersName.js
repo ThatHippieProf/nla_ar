@@ -16,7 +16,7 @@ AFRAME.registerComponent('markers_start',{
 		{
 			var url="resources/markers/pattern-Individual_Blocks-"+i+".patt";
 			markersURLArray.push(url);
-			markersNameArray.push('Transverse Motion '+i);
+			markersNameArray.push('TransverseMotion'+i);
 			//console.log(url);
 		}
 
@@ -42,7 +42,8 @@ AFRAME.registerComponent('markers_start',{
 			var objEl = document.createElement('a-entity');
 			
 			objEl.setAttribute('id','src');
-			objEl.setAttribute('src',{value:assetSRCArray[k], scale: 5 5 5});
+			objED.setAttribute('id',markerNameArray[k]'-model');
+			objEl.setAttribute('src',assetSRCArray[k]);
 			objEl.object3D.position.set(0, 0.7, 0);
 			objEl.object3D.rotation.set(-90, 0, 0);
 
