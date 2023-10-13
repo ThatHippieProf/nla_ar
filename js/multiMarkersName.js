@@ -25,7 +25,7 @@ AFRAME.registerComponent('markers_start',{
 		{
 			var assetsEl = document.createElement('a-assets');
 			assetsEl.setAttribute('src',assetSRCArray[k]);
-			assetsEl.setAttribute('id' ,assetIDArray[k];
+			assetsEl.setAttribute('id' ,assetIDArray[k]);
 
 			sceneEl.appendChild(assetsEl);
 		}
@@ -43,8 +43,8 @@ AFRAME.registerComponent('markers_start',{
 		{
 			var markerEl = document.createElement('a-marker');
 			markerEl.setAttribute('type','pattern');
-			markerEl.setAttribute('url','${markersURLArray[k]}');
-			markerEl.setAttribute('id','${markersNameArray[k])'};
+			markerEl.setAttribute('url',markersURLArray[k]);
+			markerEl.setAttribute('id',markersNameArray[k]);
 
 			markerEl.setAttribute('registerevents','');
 			sceneEl.appendChild(markerEl);
