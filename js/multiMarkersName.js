@@ -17,7 +17,7 @@ AFRAME.registerComponent('markers_start',{
 			var url="resources/markers/pattern-Individual_Blocks-"+i+".patt";
 			markersURLArray.push(url);
 			markersNameArray.push('Transverse-Motion-'+i);
-			markerIDArray.push('#asset'+i);
+			assetIDArray.push('#asset'+i);
 			//console.log(url);
 		}
 
