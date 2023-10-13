@@ -40,7 +40,7 @@ AFRAME.registerComponent('markers_start',{
 			//Adding obj to each marker
 			var objEl = document.createElement('a-entity');
 			
-			objEl.setAttribute('id','scr');
+			objEl.setAttribute('id','src');
 			objEl.setAttribute('src',{value:assetSRCArray[k], scale: 5 5 5});
 			objEl.object3D.position.set(0, 0.7, 0);
 			objEl.object3D.rotation.set(-90, 0, 0);
