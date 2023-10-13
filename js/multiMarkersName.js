@@ -41,10 +41,10 @@ AFRAME.registerComponent('markers_start',{
 			//Adding obj to each marker
 			var objEl = document.createElement('a-entity');
 			
-			objEl.setAttribute('id','src');
-			objED.setAttribute('id',markerNameArray[k]'-model');
-			objEl.setAttribute('src',assetSRCArray[k]);
+			objEl.setAttribute('id','gltf-model');
+			objEl.setAttribute('gtlf-model','src="assetSRCArray[k]"');
 			objEl.object3D.position.set(0, 0.7, 0);
+			objEl.object3D.scale.set(5, 5, 5);
 			objEl.object3D.rotation.set(-90, 0, 0);
 
 			markerEl.appendChild(objEl);
