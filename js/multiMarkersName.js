@@ -17,7 +17,7 @@ AFRAME.registerComponent('markers_start',{
 		{
 			var src="resources/assets/asset-Individual-"+i+".glb";
 			assetSRCArray.push(src)
-			assetIDArray.push('#asset'+i);
+			assetIDArray.push('asset'+i);
 			//console.log(src);
 		}
 
@@ -43,8 +43,8 @@ AFRAME.registerComponent('markers_start',{
 		{
 			var markerEl = document.createElement('a-marker');
 			markerEl.setAttribute('type','pattern');
-			markerEl.setAttribute('url',markersURLArray[k]);
-			markerEl.setAttribute('id',markersNameArray[k]);
+			markerEl.setAttribute('url','${markersURLArray[k]}');
+			markerEl.setAttribute('id','${markersNameArray[k])'};
 
 			markerEl.setAttribute('registerevents','');
 			sceneEl.appendChild(markerEl);
@@ -52,11 +52,21 @@ AFRAME.registerComponent('markers_start',{
 			//Adding obj to each marker
 			var objEl = document.createElement('a-entity');
 			
-			objEl.setAttribute('gtlf-model',assetIDArray[k]);
+			objEl.setAttribute('gltf-model','#${assetIDArray[k]}');
 			objEl.object3D.position.set(0, 0, 0.5);
 			objEl.object3D.scale.set(5, 5, 5);
 
 			markerEl.appendChild(objEl);
+
+			//Adding title to each object
+			var textEl = document.createElement('a-entity');
+			
+			textEl.setAttribute('id','text');
+			textEl.setAttribute('text',{color: 'black', align: 'center', value:markersNameArray[k], width: '3'});
+			textEl.object3D.position.set(0, -0.7, 0);
+			textEl.object3D.rotation.set(-90, 0, 0);
+
+			markerEl.appendChild(textEl);
 		}
 	}
 });
