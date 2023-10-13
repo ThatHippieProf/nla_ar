@@ -11,15 +11,23 @@ AFRAME.registerComponent('markers_start',{
 		var sceneEl = document.querySelector('a-scene');
 		
 		//list of the markers
-		for(var i=1; i<19; i++)
+		for(var i=1; i<4; i++)
 		{
 			var url="resources/markers/pattern-Individual_Blocks-"+i+".patt";
 			markersURLArray.push(url);
-			markersNameArray.push('Marker_'+i);
+			markersNameArray.push('Transverse Motion '+i);
 			//console.log(url);
 		}
 
-		for(var k=0; k<18; k++)
+		//list of the assets
+		for(var i=1; i<4; i++)
+		{
+			var src="resources/assets/asset-Individual-"+i=+".glb";
+			assetSRCArray.push(src);
+			//console.log(src);
+		}
+
+		for(var k=0; k<4; k++)
 		{
 			var markerEl = document.createElement('a-marker');
 			markerEl.setAttribute('type','pattern');
@@ -29,15 +37,15 @@ AFRAME.registerComponent('markers_start',{
 			markerEl.setAttribute('registerevents','');
 			sceneEl.appendChild(markerEl);
 
-			//Adding text to each marker
-			var textEl = document.createElement('a-entity');
+			//Adding obj to each marker
+			var objEl = document.createElement('a-entity');
 			
-			textEl.setAttribute('id','text');
-			textEl.setAttribute('text',{color: 'red', align: 'center', value:markersNameArray[k], width: '5.5'});
-			textEl.object3D.position.set(0, 0.7, 0);
-			textEl.object3D.rotation.set(-90, 0, 0);
+			objEl.setAttribute('id','scr');
+			objEl.setAttribute('src',{value:assetSRCArray[k], scale: 5 5 5});
+			objEl.object3D.position.set(0, 0.7, 0);
+			objEl.object3D.rotation.set(-90, 0, 0);
 
-			markerEl.appendChild(textEl);
+			markerEl.appendChild(objEl);
 		}
 	}
 });
